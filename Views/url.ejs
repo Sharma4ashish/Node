@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h2>RedirectURLs With ShortId  </h2>
+    
+    
+    <div>
+        <% if (locals.data) { %>
+            <table>
+                <thead>
+                    <th>S.No</th>
+                    <th>ShortId</th>
+                    <th>RedirectURL</th>
+                    <th>Clicks</th>
+                </thead>
+                <tbody>
+                    <% data.forEach((d,index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= d.shortID %></td>
+                            <td><%= d.redirectUrl %></td>
+                            <td><%= d.visitHistory.length %></td>
+                        </tr>
+                     
+                    <% }) %>
+                    
+                    
+                </tbody>
+            </table>
+         
+        <% } %>
+    </div>  
+</body>
+</html>

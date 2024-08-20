@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is User login Page </h1>
+    <% if (locals.data) { %>
+       <p> Username with this Email :<%= data %> Not Found. Check and Try Again </p>
+     
+    <% } %>
+    <div>
+        <form method="POST" action="/user/login">
+            <label >Enter your email </label>
+            <input type="text" name="email"  >
+            <label >Enter your Password </label>
+            <input type="text" name="password" placeholder="">
+            <button type="submit" >login</button>
+        </form>
+
+    </div>
+    
+</body>
+</html>
