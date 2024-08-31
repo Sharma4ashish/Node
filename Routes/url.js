@@ -2,7 +2,8 @@ const express = require("express");
 const  { handleGenRedirectUrl } = require("../controllers/url");
 const router = express.Router();
 
-const urlModel =require("../models/url")
+const urlModel =require("../models/url");
+const { restrictToRoles } = require("../middlewares/auth");
 
 
 

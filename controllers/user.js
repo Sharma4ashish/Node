@@ -8,6 +8,8 @@ async function handleUserSignUp(req,res){
         username,
         email,
         password,
+        role:"ADMIN"
+        
     });
 
     return res.redirect("/");

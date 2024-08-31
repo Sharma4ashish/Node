@@ -7,6 +7,7 @@ function setUserWithId(userDetails){
         email:userDetails.email,
         username:userDetails.username,
         _id:userDetails._id,
+        role: userDetails.role,
     },secretKey) 
 }
 

@@ -12,7 +12,7 @@ const userRouter = require("./Routes/user")
 
 const path = require("path");
 const staticRouter = require("./Routes/staticRouter");
-const {restrictToLoggedInUserOnly,checkAuth} = require("./middlewares/auth");
+const {checkForAuthentication,restrictToRoles} = require("./middlewares/auth");
 
 const app = express();
 const PORT = 8000;
@@ -30,6 +30,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser())
 
+app.use(checkForAuthentication);
+
 
 //Ejs Engine 
 app.set("view engine", "ejs");
@@ -38,8 +40,8 @@ app.set("views",path.resolve("./views"));
 
 
 // Routes
-app.use("/url",restrictToLoggedInUserOnly, urlRouter);
-app.use("/",checkAuth,staticRouter);
+app.use("/url",restrictToRoles(["ADMIN"]) ,urlRouter);
+app.use("/",staticRouter);
 app.use("/user", userRouter);
 
 
